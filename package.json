@@ -4,14 +4,21 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+
   "scripts": {
-    "test": "mocha"
+    "test": "nyc mocha"
+  },
+  "nyc": {
+    "reporter": ["lcov", "text-summary"],  // The types of reports you'll get
+    "report-dir": "./coverage",            // The directory where coverage reports are saved
+    "all": true                            // Collect coverage for all files, even if not directly tested
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "chai": "^5.1.2",
     "coveralls": "^3.1.1",
-    "mocha": "^10.8.2"
+    "mocha": "^10.8.2",
+    "nyc": "^17.1.0"
   }
 }
