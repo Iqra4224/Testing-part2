@@ -1,4 +1,4 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code, run tests, and upload coverage to Coveralls across different versions of node
 # For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Node.js CI
@@ -29,3 +29,11 @@ jobs:
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
+
+    # Generate and send coverage data to Coveralls
+    - name: Generate coverage and send to Coveralls
+      run: |
+        npm run test -- --coverage  # Ensure tests are generating coverage
+        npx coveralls < ./coverage/lcov-report/lcov-coverage.json  # Send the coverage data to Coveralls
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}  # Use the secret token you added to GitHub
