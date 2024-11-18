@@ -9,9 +9,9 @@
     "test": "nyc mocha"
   },
   "nyc": {
-    "reporter": ["lcov", "text-summary"],  // The types of reports you'll get
-    "report-dir": "./coverage",            // The directory where coverage reports are saved
-    "all": true                            // Collect coverage for all files, even if not directly tested
+    "reporter": ["lcov", "text-summary"], 
+    "report-dir": "./coverage",            
+    "all": true                            
   },
   "author": "",
   "license": "MIT",
