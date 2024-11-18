@@ -4,14 +4,25 @@
   "description": "",
   "main": "index.js",
   "type": "module",
-
   "scripts": {
     "test": "nyc mocha"
   },
   "nyc": {
-    "reporter": ["lcov", "text-summary"], 
-    "report-dir": "./coverage",            
-    "all": true                            
+    "all": true,
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "test/**/*.js"
+    ],
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "check-coverage": false,
+    "extension": [
+      ".js"
+    ]
   },
   "author": "",
   "license": "MIT",
@@ -19,6 +30,7 @@
     "chai": "^5.1.2",
     "coveralls": "^3.1.1",
     "mocha": "^10.8.2",
-    "nyc": "^17.1.0"
+    "nyc": "^17.1.0",
+    "source-map-support": "^0.5.21"
   }
 }

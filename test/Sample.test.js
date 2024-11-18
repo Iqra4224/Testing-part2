@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import add from '../src/add.js'; // Use .js extension for ES module imports
+import add from '../src/add.js'; 
 
 describe('add() function', () => {
   it('should return the sum of two numbers', () => {
