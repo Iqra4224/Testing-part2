@@ -4,27 +4,19 @@
   "description": "",
   "main": "index.js",
   "type": "module",
- 
   "scripts": {
-  "test": "mocha", 
-  "coverage": "nyc mocha"
-},
+    "test": "nyc  mocha",
+    "coverage": "nyc mocha"
+  },
   "nyc": {
     "all": true,
     "include": [
-      "src/**/*.js"
+      "src"
     ],
     "exclude": [
-      "test/**/*.js"
+      "src/.internal/*"
     ],
-    "reporter": [
-      "text",
-      "html"
-    ],
-    "check-coverage": false,
-    "extension": [
-      ".js"
-    ]
+    "reporter": "text"
   },
   "author": "",
   "license": "MIT",
