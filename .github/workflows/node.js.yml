@@ -1,5 +1,5 @@
-# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code, run tests, and upload coverage to Coveralls across different versions of node
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code, run tests, and upload coverage to Coveralls across different versions of node.
+# For more information, see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
 
 name: Node.js CI
 
@@ -11,7 +11,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -20,20 +19,27 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
 
-    # Generate and send coverage data to Coveralls
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Build the source code (if applicable)
+      run: npm run build --if-present
+
+    - name: Run tests
+      run: npm test
+
     - name: Generate coverage and send to Coveralls
       run: |
-        npm run test -- --coverage  # Ensure tests are generating coverage
-        npx coveralls < ./coverage/lcov-report/lcov-coverage.json  # Send the coverage data to Coveralls
+        npm run coverage  # Ensure this script generates the coverage files
+        npx coveralls < ./coverage/lcov.info  # Upload coverage data to Coveralls
       env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use the secret token you added to GitHub
+        github-token: ${{ secrets.GITHUB_TOKEN }}; 

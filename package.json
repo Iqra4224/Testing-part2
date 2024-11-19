@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "type": "module",
+ 
   "scripts": {
-    "test": "nyc mocha"
-  },
+  "test": "mocha", 
+  "coverage": "nyc mocha"
+},
   "nyc": {
     "all": true,
     "include": [
