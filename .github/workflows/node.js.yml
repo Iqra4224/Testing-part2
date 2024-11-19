@@ -42,4 +42,4 @@ jobs:
         npm run coverage  # Ensure this script generates the coverage files
         npx coveralls < ./coverage/lcov.info  # Upload coverage data to Coveralls
       env:
-        github-token: ${{ secrets.GITHUB_TOKEN }}; 
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}
