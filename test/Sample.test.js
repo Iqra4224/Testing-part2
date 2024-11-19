@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import add from '../src/add.js'; 
 
-describe('add() function', () => {
+describe('Sample add function', () => {
   it('should return the sum of two numbers', () => {
     expect(add(2, 3)).to.equal(5);
   });
