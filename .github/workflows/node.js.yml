@@ -21,10 +21,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - name: Use Node.js ${matrix.node-version}
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
-        node-version: ${matrix.node-version}
+        node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
@@ -36,4 +36,4 @@ jobs:
         npm run test -- --coverage  # Ensure tests are generating coverage
         npx coveralls < ./coverage/lcov-report/lcov-coverage.json  # Send the coverage data to Coveralls
       env:
-        COVERALLS_REPO_TOKEN: ${secrets.COVERALLS_REPO_TOKEN}  # Use the secret token you added to GitHub
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Use the secret token you added to GitHub
