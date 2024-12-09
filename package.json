@@ -11,10 +11,19 @@
   "nyc": {
     "all": true,
     "include": [
-      "src"
+      "src/add.js",
+      "src/map.js",
+      "src/isObject.js",
+      "src/isEmpty.js",
+      "src/filter.js",
+      "src/reduce.js",
+      "src/get.js",
+      "src/capitalize.js",
+      "src/toString.js",
+      "src/eq.js"
     ],
     "exclude": [
-      "src/.internal/*"
+      "src/.internal/**"
     ],
     "reporter": "text"
   },
