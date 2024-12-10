@@ -5,12 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "nyc  mocha",
-    "coverage": "nyc --reporter=lcov --reporter=text-summary mocha",
+    "test": "mocha",
+    "coverage": "c8 mocha",
     "coveralls": "npm run coverage && npx coveralls < ./coverage/lcov.info"
   },
-  "nyc": {
-    "all": true,
+  "c8": {
     "include": [
       "src/add.js",
       "src/map.js",
@@ -25,17 +24,15 @@
     ],
     "exclude": [
       "src/.internal/**"
-    ],
-    "reporter": ["text", "lcov"],
-    "extension": [".js"]
+    ]
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "c8": "^10.1.2",
     "chai": "^5.1.2",
     "coveralls": "^3.1.1",
     "mocha": "^10.8.2",
-    "nyc": "^17.1.0",
     "source-map-support": "^0.5.21"
   }
 }
