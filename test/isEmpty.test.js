@@ -86,4 +86,16 @@ describe('isEmpty', function() {
     const typedArray = new Uint8Array([1, 2, 3]);
     assert.strictEqual(isEmpty(typedArray), false);
   });
+
+  it('should return true for an empty prototype object', function() {
+    const proto = Object.getPrototypeOf({});
+    assert.strictEqual(isEmpty(proto), true);
+  });
+
+  it('should return false for a prototype object with properties', function() {
+    function Testing() {}
+    Testing.prototype.a = 1;
+    const proto = Testing.prototype;
+    assert.strictEqual(isEmpty(proto), false);
+  });
 });

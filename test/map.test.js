@@ -19,4 +19,10 @@ describe('map function', function () {
     const result = map(input, (x) => x);
     expect(result).to.deep.equal([1, 2, 3]);
   });
+
+  it('should return an empty array if input is null', function () {
+    const input = null;
+    const result = map(input, (x) => x * 2);
+    expect(result).to.deep.equal([]);
+  });
 });
