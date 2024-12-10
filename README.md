@@ -1,6 +1,6 @@
 # Student template
 
-[![Coverage Status](https://coveralls.io/repos/github/Iqra4224/Testing-part2/badge.svg)](https://coveralls.io/github/Iqra4224/Testing-part2)
+[![Coverage Status](https://coveralls.io/repos/github/Iqra4224/Testing-part2/badge.svg?branch=main)](https://coveralls.io/github/Iqra4224/Testing-part2?branch=main)
 
 ## Purpose of this repository
 
