@@ -25,7 +25,8 @@
     "exclude": [
       "src/.internal/**"
     ],
-    "reporter": "text"
+    "reporter": ["text", "lcov"],
+    "extension": [".js"]
   },
   "author": "",
   "license": "MIT",
