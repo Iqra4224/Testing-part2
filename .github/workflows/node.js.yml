@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "main", "toni" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "toni" ]
 
 jobs:
   build:
@@ -39,7 +39,6 @@ jobs:
 
     - name: Generate coverage and send to Coveralls
       run: |
-        npm run coverage  # Ensure this script generates the coverage files
-        npx coveralls < ./coverage/lcov.info  # Upload coverage data to Coveralls
+        npm run coveralls  # Ensure this script generates the coverage files and uploads them to coveralls.io
       env:
         COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN }}

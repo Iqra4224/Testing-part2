@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "nyc  mocha",
-    "coverage": "nyc mocha"
+    "coverage": "nyc --reporter=lcov --reporter=text-summary mocha",
+    "coveralls": "npm run coverage && npx coveralls < ./coverage/lcov.info"
   },
   "nyc": {
     "all": true,
